@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Ingredients from './ingredients'
+import PropTypes from 'prop-types'
 import './App.css'
 
 export default class recipeCard extends Component{
@@ -15,5 +16,11 @@ export default class recipeCard extends Component{
         <p style={{fontSize:'1em'}} >{this.props.instructions}</p>
       </div>
     )
+  }
+  static PropTypes={
+    title: PropTypes.string.isRequired,
+    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+    instructions:PropTypes.string.isRequired,
+    image:PropTypes.string.isRequired
   }
 }
