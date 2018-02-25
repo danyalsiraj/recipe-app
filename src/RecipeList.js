@@ -4,10 +4,10 @@ import RecipeCard from './recipeCard'
 import './RecipeList.css'
 
 export default class RecipeList extends Component{
-  
+
   render (){
-    const recipies=this.props.recipies.map((recipie,index)=>(
-      <RecipeCard key={index} {...recipie}/>
+    const recipies=this.props.recipies.map((recipie)=>(
+      <RecipeCard key={recipie.id} {...recipie}/>
     ))
     return (
       <div className="recipeList">

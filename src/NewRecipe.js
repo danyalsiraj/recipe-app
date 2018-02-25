@@ -8,6 +8,9 @@ const NewRecipe=(props)=>{
       <br/>
       Ingredient:<br/>
       <input type="text" name="ingredient" placeholder="Enter Ingredient"/>
+      <input type="text" name="ingredient" placeholder="Enter Ingredient"/>
+      <input type="text" name="ingredient" placeholder="Enter Ingredient"/>
+      <input type="text" name="ingredient" placeholder="Enter Ingredient"/>
       <br/>
       Instructions:<br/>
       <input type="text" name="instructions" placeholder="Enter Instructions"/>

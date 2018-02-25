@@ -12,16 +12,19 @@ class App extends Component {
     this.state={
       showForm:false,
       recipies:[{
+        id:1,
         name:"Milkshake",
         image:"http://del.h-cdn.co/assets/15/24/980x490/landscape-1433889344-del-milkshakes-index.jpg",
         ingredients:["2 scoops ice cream","milk"],
         instructions:"make me a milkshake"
       },{
+        id:2,
         name:"Milkshake",
         image:"http://del.h-cdn.co/assets/15/24/980x490/landscape-1433889344-del-milkshakes-index.jpg",
         ingredients:["2 scoops ice cream","milk"],
         instructions:"make me a milkshake"
-      }]
+      }],
+      nextRecipeId:3
     }
   }
   // static defaultProps={
@@ -41,20 +44,33 @@ class App extends Component {
   // }
   saveRecipe(e){
     e.preventDefault()
+    console.log(document.getElementsByName("ingredient"));
     let recipe={
+      id: this.state.nextRecipeId,
       name: document.getElementsByName("dishName")[0].value,
-      ingredients:[document.getElementsByName("ingredient")[0].value],
+      ingredients: this.saveIngredients(document.getElementsByName("ingredient")),
       instructions:document.getElementsByName("instructions")[0].value,
       image:document.getElementsByName("imageURL")[0].value
     }
-    this.setState({
-      showForm:false,
-      recipies:[
-        ...this.state.recipies,
-        recipe
-      ]
+    this.setState((prevState)=>{
+      return {
+        showForm:false,
+        recipies:[
+          ...prevState.recipies,
+          recipe
+        ],
+        nextRecipeId: prevState.nextRecipeId +1
+      }
     })
     e.target.reset()
+  }
+  saveIngredients(ingList){
+    let ingredients=[]
+    ingList.forEach((currentValue)=>{
+        ingredients.push(currentValue.value)
+
+    })
+    return ingredients
   }
   showForm(){
     this.setState({...this.state,showForm:true})
