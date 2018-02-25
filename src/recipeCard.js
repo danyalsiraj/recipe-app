@@ -17,8 +17,8 @@ export default class recipeCard extends Component{
       </div>
     )
   }
-  static PropTypes={
-    title: PropTypes.string.isRequired,
+  static propTypes={
+    name: PropTypes.string.isRequired,
     ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
     instructions:PropTypes.string.isRequired,
     image:PropTypes.string.isRequired

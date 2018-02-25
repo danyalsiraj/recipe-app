@@ -8,7 +8,7 @@ export default class NavBar extends Component{
       <header>
         <h2><a>RECIPE APP</a></h2>
         <nav>
-          <li><a>NEW RECIPE</a></li>
+          <li><a onClick={this.props.showForm}>NEW RECIPE</a></li>
           <li><a>HOME</a></li>
           <li><a>ABOUT</a></li>
           <li><a>CONTACT US</a></li>
