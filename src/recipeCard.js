@@ -4,6 +4,11 @@ import PropTypes from 'prop-types'
 import './App.css'
 
 export default class recipeCard extends Component{
+
+deleteRecipe(){
+  console.log(this);
+  this.props.deleteRecipe(this.props.id)
+}
   render(){
 
     return (
@@ -14,6 +19,7 @@ export default class recipeCard extends Component{
         <Ingredients ingredients={this.props.ingredients}/>
         <h5 className="heading">Instructions:</h5>
         <p style={{fontSize:'1em'}} >{this.props.instructions}</p>
+        <button type="button" class="btn btn-outline-dark btn-sm" onClick={this.deleteRecipe.bind(this)}>DELETE</button>
       </div>
     )
   }

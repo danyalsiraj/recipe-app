@@ -7,7 +7,7 @@ export default class RecipeList extends Component{
 
   render (){
     const recipies=this.props.recipies.map((recipie)=>(
-      <RecipeCard key={recipie.id} {...recipie}/>
+      <RecipeCard key={recipie.id} deleteRecipe={this.props.deleteRecipe} {...recipie}/>
     ))
     return (
       <div className="recipeList">

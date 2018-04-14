@@ -64,11 +64,18 @@ class App extends Component {
     })
     e.target.reset()
   }
+  deleteRecipe(id){
+    let NewRecipes= this.state.recipies.filter(recipe=>(
+      recipe.id !=id
+    ))
+    this.setState({
+      ...this.state, recipies:NewRecipes
+    })
+  }
   saveIngredients(ingList){
     let ingredients=[]
     ingList.forEach((currentValue)=>{
         ingredients.push(currentValue.value)
-
     })
     return ingredients
   }
@@ -94,7 +101,7 @@ class App extends Component {
         <Navbar showForm={this.showForm.bind(this)}/>
         {this.state.showForm ? <NewRecipeForm saveRecipe={this.saveRecipe.bind(this)}/>:null }
         <div className="App">
-          <RecipeList recipies={this.state.recipies}/>
+          <RecipeList recipies={this.state.recipies} deleteRecipe={this.deleteRecipe.bind(this)}/>
         </div>
       </div>
     )
